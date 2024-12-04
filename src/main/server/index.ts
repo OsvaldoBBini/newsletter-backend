@@ -1,10 +1,12 @@
 import express from "express";
-import { router } from "./main/routers";
+import { router } from "../routers";
+import { errorHandler } from "../middlewares/errorHandler";
 
 const app = express();
 
 app.use(express.json());
 app.use(router);
+app.use(errorHandler)
 
 const PORT = 8000;
 app.listen(PORT, () => {
